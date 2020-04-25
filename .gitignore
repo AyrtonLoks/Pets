@@ -2,3 +2,5 @@ node_modules/
 venv/
 run.py
 gulpfile.js
+.vscode/
+__pycache__/
