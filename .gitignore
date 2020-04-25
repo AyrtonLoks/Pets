@@ -1,4 +1,4 @@
 node_modules/
-test.html
 venv/
-backend/
+run.py
+gulpfile.js
