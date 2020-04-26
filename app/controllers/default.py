@@ -24,10 +24,11 @@ def index():
 #def profile(user):
 #    return render_template('base.html', user=user)
 
-@app.route('/teste/<info>')
-@app.route('/teste', defaults={'info': None})
-def teste(info):
-    i = User('Ayrton Leandro', 'ayrton.leandro', 'ayrton.leandro@gmail.com', '1234')
-    db.session.add(i)
-    db.session.commit()
-    return 'OK'
+#@app.route('/teste/<info>')
+#@app.route('/teste', defaults={'info': None})
+#def teste(info):
+#    r = User.query.filter_by(username = 'ayrton.leandro').first()
+#    db.session.delete(r)
+#    db.session.commit()
+#    print(r.username, r.name, r.email, r.password)
+#    return 'ok'
