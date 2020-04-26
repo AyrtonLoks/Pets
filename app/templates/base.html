@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.css') }}">
+
+    <!-- My CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+
+    <title>{% block title %}Pets{% endblock %}</title>
+
+  </head>
+  <body>
+    
+    <div class="container-fluid">
+      
+      <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-primary">
+
+        <a class="navbar-brand" href="#">
+          <img src="{{ url_for('static', filename='assets/pets_logoCat.png') }}" width="30" height="30" class="d-inline-block align-top" alt="Pets logo">
+          Pets
+        </a>
+      
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSite">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        
+        <div class="collapse navbar-collapse" id="navbarSite">
+          
+          <ul class="navbar-nav ml-auto">
+
+            <li class="nav-item">
+              <a class="nav-link" href="#">Home</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="#">Passear</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="#">Zoos</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="#">Meus Pets</a>
+            </li>
+
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle-split" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Atividades</a>
+              <div class="dropdown-menu dropdown-menu-right">
+                <h6 class="dropdown-header">Notificações</h6>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item disabled" href="#" tabindex="-1" aria-disabled="true">Novas</a>
+                <a class="dropdown-item disabled" href="#" tabindex="-1" aria-disabled="true">Antigas</a>
+              </div>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="#">Chat</a>
+            </li>
+
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle-split" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Mais</a>
+              <div class="dropdown-menu dropdown-menu-right">
+                <a class="dropdown-item" href="#">Meus Pets</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">Ajuda e Suporte</a>
+                <a class="dropdown-item" href="#">Configuração</a>
+                <a class="dropdown-item" href="#">Sobre</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">Sair</a>
+              </div>
+            </li>
+
+          </ul>
+
+        </div>
+        
+      </nav>
+
+      <div class="container" id="basic">
+        {% block content %}
+
+        {% endblock %}
+      </div>
+      
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="{{ url_for('static', filename='js/jquery-3.4.1.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/popper.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/bootstrap.js') }}"></script>
+  </body>
+</html>
