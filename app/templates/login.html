@@ -3,29 +3,39 @@
 {% block title %}Pets{% endblock %}
 
 {% block content %}
-
-<form action="" method="POST" id="basic">
-
-    <div class="form-group">
-        <label for="exampleInputEmail1">Endereço de email</label>
-        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="nome@examplo.com">
-        <small id="emailHelp" class="form-text text-muted">
-          Insira um email válido.
-        </small>
-    </div>
-
-    <div class="form-group">
-        <label for="exampleInputPassword1">Senha</label>
-        <input type="password" class="form-control" id="exampleInputPassword1">
-    </div>
-
-    <div class="form-group form-check">
-        <input type="checkbox" class="form-check-input" id="exampleCheck1">
-        <label class="form-check-label" for="exampleCheck1">Lembrar-me</label>
-    </div>
-
-    <button type="submit" class="btn btn-primary">Login</button>
-
-</form>
+<div class="col-md-6 offset-lg-3">
+    <span class="d-block p-5 bg-light border border-primary rounded-lg shadow">
+        <h1>Login</h1>
+        <div class="row justify-content-center">
+            <div class="col">
+                <form action="" method="POST">
+                    {{ form.scrf_token }}
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Endereço de email ou Nome de usuário</label>
+                        {{ form.username(class='form-control', placeholder='nome@examplo.com ou NomeUsuario') }}
+                        <small id="emailHelp" class="form-text text-muted">
+                        Insira um email válido.
+                        </small>
+                    </div>
+                
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Senha</label>
+                        {{ form.password(class='form-control') }}
+                    </div>
+                
+                    <div class="form-group form-check">
+                        <label class="form-check-label" for="exampleCheck1">
+                            {{ form.remember_me(class='form-check-input') }}
+                            Lembrar-me
+                        </label>
+                    </div>
+                
+                    <button type="submit" class="btn btn-primary">Login</button>
+                
+                </form>
+            </div>
+        </div>
+    </span>
+</div>
 
 {% endblock %}

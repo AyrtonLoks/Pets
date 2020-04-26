@@ -3,9 +3,15 @@ from app import app
 
 from app.models.forms import LoginForm
 
-@app.route('/login')
+@app.route('/login', methods=["GET", "POST"])
 def login():
     form = LoginForm()
+
+    if form.validate_on_submit():
+        print()
+    else:
+        print()
+
     return render_template('login.html', form=form)
 
 @app.route('/')
