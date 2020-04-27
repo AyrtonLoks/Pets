@@ -21,7 +21,7 @@
       
       <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-primary">
 
-        <a class="navbar-brand" href="#">
+        <a class="navbar-brand" href="{{ url_for('index') }}">
           <img src="{{ url_for('static', filename='assets/pets_logoCat.png') }}" width="30" height="30" class="d-inline-block align-top" alt="Pets logo">
           Pets
         </a>
@@ -33,50 +33,54 @@
         <div class="collapse navbar-collapse" id="navbarSite">
           
           <ul class="navbar-nav ml-auto">
+            {% if current_user.is_authenticated %}
+              <li class="nav-item">
+                <a class="nav-link" href="#">Home</a>
+              </li>
 
-            <li class="nav-item">
-              <a class="nav-link" href="#">Home</a>
-            </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Passear</a>
+              </li>
 
-            <li class="nav-item">
-              <a class="nav-link" href="#">Passear</a>
-            </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Zoos</a>
+              </li>
 
-            <li class="nav-item">
-              <a class="nav-link" href="#">Zoos</a>
-            </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Meus Pets</a>
+              </li>
 
-            <li class="nav-item">
-              <a class="nav-link" href="#">Meus Pets</a>
-            </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle-split" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Atividades</a>
+                <div class="dropdown-menu dropdown-menu-right">
+                  <h6 class="dropdown-header">Notificações</h6>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item disabled" href="#" tabindex="-1" aria-disabled="true">Novas</a>
+                  <a class="dropdown-item disabled" href="#" tabindex="-1" aria-disabled="true">Antigas</a>
+                </div>
+              </li>
 
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle-split" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Atividades</a>
-              <div class="dropdown-menu dropdown-menu-right">
-                <h6 class="dropdown-header">Notificações</h6>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item disabled" href="#" tabindex="-1" aria-disabled="true">Novas</a>
-                <a class="dropdown-item disabled" href="#" tabindex="-1" aria-disabled="true">Antigas</a>
-              </div>
-            </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Chat</a>
+              </li>
 
-            <li class="nav-item">
-              <a class="nav-link" href="#">Chat</a>
-            </li>
-
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle-split" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Mais</a>
-              <div class="dropdown-menu dropdown-menu-right">
-                <a class="dropdown-item" href="#">Meus Pets</a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#">Ajuda e Suporte</a>
-                <a class="dropdown-item" href="#">Configuração</a>
-                <a class="dropdown-item" href="#">Sobre</a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#">Sair</a>
-              </div>
-            </li>
-
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle-split" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Mais</a>
+                <div class="dropdown-menu dropdown-menu-right">
+                  <a class="dropdown-item" href="#">Meus Pets</a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" href="#">Ajuda e Suporte</a>
+                  <a class="dropdown-item" href="#">Configuração</a>
+                  <a class="dropdown-item" href="#">Sobre</a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" href="{{ url_for('logout') }}">Sair</a>
+                </div>
+              </li>
+            {% else %}
+              <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('login') }}">Entrar</a>
+              </li>
+            {% endif %}
           </ul>
 
         </div>
@@ -88,6 +92,18 @@
 
         {% endblock %}
       </div>
+
+      {% with messages = get_flashed_messages() %}
+          {% if messages %}
+            <div class="alert alert-warning" role="alert">
+              <ul class=flashes>
+              {% for message in messages %}
+                <li>{{ message }}</li>
+              {% endfor %}
+              </ul>
+            </div>
+          {% endif %}
+        {% endwith %}
      
     </div>
 
