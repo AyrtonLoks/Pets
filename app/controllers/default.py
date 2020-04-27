@@ -16,12 +16,20 @@ def login():
 
     if form.validate_on_submit():
         user = User.query.filter_by(username=form.username.data).first()
+#        umail = User.query.filter_by(email=form.email.data).first()
+        
         if user and user.password == form.password.data:
             login_user(user)
             flash("Logged in.")
             return redirect(url_for('index'))
+
+#        elif umail and umail.password == form.password.data:
+#            login_user(umail)
+#            flash("Logged in.")
+#            return redirect(url_for('index'))
+
         else:
-            flash("Invalid login.")
+            flash("Nome de usuário ou senha inválidos.")
 
     return render_template('login.html', form=form)
 
@@ -44,11 +52,11 @@ def index():
 #    return render_template('base.html', user=user)
 
 # Test of insertion and query database
-@app.route('/teste/<info>')
-@app.route('/teste', defaults={'info': None})
-def teste(info):
-    r = User('Ayrton Leandro', 'ayrton.leandro', 'ayrton.leandro@gmail.com', 'meninodeprograma')
-    db.session.add(r)
-    db.session.commit()
-    print(r.username, r.name, r.email, r.password)
-    return 'ok'
+#@app.route('/teste/<info>')
+#@app.route('/teste', defaults={'info': None})
+#def teste(info):
+#    r = User('Ayrton Leandro', 'ayrton.leandro', 'ayrton.leandro@gmail.com', 'meninodeprograma')
+#    db.session.add(r)
+#    db.session.commit()
+#    print(r.username, r.name, r.email, r.password)
+#    return 'ok'

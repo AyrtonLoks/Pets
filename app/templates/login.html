@@ -9,28 +9,28 @@
         <div class="row justify-content-center">
             <div class="col">
                 <form action="" method="POST">
-                    {{ form.scrf_token }}
+                    {{ form.csrf_token }}
                     <div class="form-group">
-                        <label for="exampleInputEmail1">Endereço de email ou Nome de usuário</label>
-                        {{ form.username(class='form-control', placeholder='nome@examplo.com ou NomeUsuario') }}
+                        <label for="">Nome de usuário</label>
+                        {{ form.username(class='form-control', placeholder='nome de usuario') }}
                         <small id="emailHelp" class="form-text text-muted">
                         Insira um email válido.
                         </small>
                     </div>
                 
                     <div class="form-group">
-                        <label for="exampleInputPassword1">Senha</label>
-                        {{ form.password(class='form-control') }}
+                        <label for="">Senha</label>
+                        {{ form.password(class='form-control', placeholder='senha') }}
                     </div>
                 
                     <div class="form-group form-check">
-                        <label class="form-check-label" for="exampleCheck1">
+                        <label class="form-check-label" for="">
                             {{ form.remember_me(class='form-check-input') }}
                             Lembrar-me
                         </label>
                     </div>
                 
-                    <button type="submit" class="btn btn-primary">Login</button>
+                    <button type="submit" class="btn btn-primary">Entrar</button>
                 
                 </form>
             </div>
