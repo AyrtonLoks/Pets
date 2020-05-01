@@ -1,44 +1,39 @@
 {% extends 'base.html' %}
 
 {% block title %}Login{% endblock %}
+
 {% block head %}
     {{ super() }}
     <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
 {% endblock %}
 
 {% block content %}
-<div class="col-md-6 offset-lg-3" id="login_form">
     <div class="d-block p-5 bg-light border border-primary rounded-lg shadow">
         <h1>Entrar</h1>
-        <div class="row justify-content-center">
-            <div class="col">
-                <form action="" method="POST">
-                    {{ form.csrf_token }}
-                    <div class="form-group">
-                        <label for="">Nome de usuário</label>
-                        {{ form.username(class='form-control', placeholder='nome de usuario') }}
-                        <small id="emailHelp" class="form-text text-muted">
-                        Insira um email válido.
-                        </small>
-                    </div>
-                
-                    <div class="form-group">
-                        <label for="">Senha</label>
-                        {{ form.password(class='form-control', placeholder='senha') }}
-                    </div>
-                
-                    <div class="form-group form-check">
-                        <label class="form-check-label" for="">
-                            {{ form.remember_me(class='form-check-input') }}
-                            Lembrar-me
-                        </label>
-                    </div>
-                
-                    <button type="submit" class="btn btn-primary">Entrar</button>
-                
-                </form>
+        <form action="" method="POST">
+            {{ form.csrf_token }}
+            <div class="form-group">
+                <label for="">Nome de usuário</label>
+                {{ form.username(class='form-control', placeholder='nome de usuario') }}
+                <small id="emailHelp" class="form-text text-muted">
+                Insira um email válido.
+                </small>
             </div>
-        </div>
+        
+            <div class="form-group">
+                <label for="">Senha</label>
+                {{ form.password(class='form-control', placeholder='senha') }}
+            </div>
+        
+            <div class="form-group form-check">
+                <label class="form-check-label" for="">
+                    {{ form.remember_me(class='form-check-input') }}
+                    Lembrar-me
+                </label>
+            </div>
+        
+            <button type="submit" class="btn btn-primary">Entrar</button>
+        
+        </form>
     </div>
-</div>
 {% endblock %}
