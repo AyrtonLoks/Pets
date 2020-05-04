@@ -17,7 +17,6 @@
   
   <body>
     {% block body %}
-    <div class="container-fluid">
       
       <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-primary">
 
@@ -45,7 +44,7 @@
               <li class="nav-item">
                 <a class="nav-link" href="#">Zoos</a>
               </li>
-
+        
               <li class="nav-item">
                 <a class="nav-link" href="#">Meus Pets</a>
               </li>
@@ -108,12 +107,12 @@
           {% endif %}
         {% endwith %}
 
+      </div>
+
         {% block content %}
 
         {% endblock %}
-      </div>
    
-    </div>
       {% block footer %}
         
       {% endblock %}
