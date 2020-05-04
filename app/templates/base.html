@@ -86,8 +86,6 @@
         
       </nav>
 
-      <div class="container">
-
         {% with messages = get_flashed_messages() %}
           {% if messages %}
           <div class="col-md-6 offset-lg-3">
@@ -106,8 +104,6 @@
           </div>
           {% endif %}
         {% endwith %}
-
-      </div>
 
         {% block content %}
 

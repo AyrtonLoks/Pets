@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/footer.css') }}">
 {% endblock %}
 {% block content %}
+<div class="container">
     <div class="d-block p-5 bg-light border border-primary rounded-lg shadow">
         <h1>Entrar</h1>
         <form action="" method="POST">
@@ -16,7 +17,7 @@
                 <label for="">Nome de usuário</label>
                 {{ form.username(class='form-control', placeholder='nome de usuario') }}
                 <small id="emailHelp" class="form-text text-muted">
-                Insira um email válido.
+                Insira um nome de usuário válido.
                 </small>
             </div>
         
@@ -36,11 +37,12 @@
         
         </form>
     </div>
+</div>
 {% endblock %}
 {% block footer %}
-    <footer class="text-muted bg-light" id="bd-footer">
-        <div class="container-fluid p-3 p-md-5">
-            <ul id="bd-footer-links">
+    <footer class="bd-footer text-muted bg-light">
+        <div class="p-3 p-md-5">
+            <ul class="bd-footer-links">
                 <li>
                     <a href="https://facebook.com">Facebook</a>
                 </li>
